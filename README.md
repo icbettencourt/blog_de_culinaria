@@ -6,7 +6,7 @@
     Django 4.x
     SQLite (banco de dados padrão)
     
-💻 Como executar o projeto
+### Como executar o projeto
   ### Pré-requisitos
   Certifique-se que tem as seguintes ferramentas instaladas:
   - [Python](https://www.python.org/downloads/) (versão 3.8 ou superior)
@@ -37,5 +37,5 @@
     python manage.py runserver
   
   6. **Abra o navegor**
-     no link: http://127.0.0.1:8000/ com CTRL-ENTER
+     no link: http://127.0.0.1:8000/ com CTRL+ENTER
   
