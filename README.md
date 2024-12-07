@@ -1,7 +1,7 @@
-🥞**### Blog de Culinária em Django**
+### Blog Culinária
     É um blog de culinária desenvolvido em Django. Permite adicionar, listar, atualizar e pesquisar receitas, bem como filtrar por categorias.
 
-💻 **### Tecnologias usadas**
+### Tecnologias usadas**
     Python 3.8+
     Django 4.x
     SQLite (banco de dados padrão)
