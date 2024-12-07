@@ -1,0 +1,24 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div id="id_logout">
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+
+        <button onclick="confirmLogout()" id="id_button_logout">
+            <img src="{% static 'power.png' %}" alt="sair" title="sair" class="edit_img">
+            <h2>Sair da sua conta.</h2>
+        </button>
+    </form>
+</div>
+<script>
+    function confirmLogout() {
+        if (confirm('Tem certeza de que deseja sair da sessão?')) {
+            alert('Até Breve!');
+        };
+    }
+</script>
+
+{% endblock %}

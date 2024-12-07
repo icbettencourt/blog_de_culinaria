@@ -1,0 +1,11 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<div class="register_user">
+    <h2>Conta registada com sucesso</h2>
+    <a href="{% url 'blog:login_user' %}">
+        Aceda à sua conta
+    </a>
+</div>
+{% endblock %}

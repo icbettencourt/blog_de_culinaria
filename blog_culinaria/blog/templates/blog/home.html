@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1>Bem vindos ao meu blog de culinária</h1>
+<div id="id_about_me">
+    <div id="id_about_me_photo">
+        <img src="{% static 'photo.jpg' %}" alt="">
+    </div>
+
+    <div id="id_about_me_text">
+        <h3>Sobre mim:</h3>
+        Sou a <span id="id_author">Isa</span> e sou a autora deste blogue repleto de receitas deliciosas!
+        <br>
+        Nasci nos Açores, mas vivo em Aveiro há uns largos anos.
+        <br>
+        Adoro viajar e comer!
+        <br>
+        Recentemente adotei um estilo de vida mais saudável, com direito a muito exercicio e neste momento partilho
+        receitas mais fit, porque é a realidade cá em casa.
+    </div>
+</div>
+
+{% endblock %}

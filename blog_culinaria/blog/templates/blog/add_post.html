@@ -1,0 +1,73 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="title">
+    <h1>Adicionar nova receita</h1>
+</div>
+<div class="add_post">
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>
+            <label for="id_title">Título:</label>
+            {{ form_post.title }}
+        </p>
+        <p>
+            <label for="id_add_post_photo">Fotografia:</label>
+            {{ form_post.photo }}
+        </p>
+        <p>
+            <label for="id_ingredients">Ingredientes:</label>
+            {{ form_post.ingredients }}
+        </p>
+        <p>
+            <label for="id_recipe">Preparação:</label>
+            {{ form_post.recipe }}
+        </p>
+        <p>
+            <label for="id_category">Categoria:</label>
+            <div class="category-field">
+                {{ form_post.category }}
+                <button type="button" onclick="showField()" id="id_button_plus">
+                    <img src="{% static 'plus.png' %}" alt="" id="id_plus">
+                </button>
+            </div>
+            <input type="text" name="new_category" id="id_new_category" hidden>         
+        </p>       
+
+        <p>
+            <label for="id_created_date">Created date:</label>
+            <input type="date" name="created_date" id="id_created_date">
+        </p>
+
+        <button>Adicionar</button>
+        <button type="reset">Limpar</button>
+    </form>
+</div>
+
+<script>
+    function showField(){
+        let field = document.getElementById('id_new_category');
+        if (field.hasAttribute('hidden'))
+           field.removeAttribute('hidden');
+        else
+            field.setAttribute('hidden','true');
+
+        document.getElementById('id_category').value = "";
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+            let dateInput = document.getElementById('id_created_date');
+            //gets the current date
+            let today = new Date();
+            // formats the date 
+            let day = ("0" + today.getDate()).slice(-2);
+            let month = ("0" + (today.getMonth() + 1)).slice(-2);
+            let formattedDate = today.getFullYear() + "-" + month + "-" + day;
+            dateInput.value = formattedDate;
+        });
+</script>
+
+{% endblock %}
+

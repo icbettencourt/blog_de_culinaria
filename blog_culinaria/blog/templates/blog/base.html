@@ -1,0 +1,81 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cozinha & Companhia</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="shortcut icon" href="{% static 'cook.png' %}" type="image/x-icon">
+
+</head>
+
+<body>
+    <header>
+        <div id="id_first_bar">
+            <div id="id_search_bar">
+                <!-- search recipes by: title, category or ingredients -->
+                <form method="POST" action="{% url 'blog:list_recipes' %}">
+                    {% csrf_token %}
+                    <label>
+                        <input type="search" name="field" placeholder="Pesquisar...">
+                        <button id="id_button_search">
+                            <img src="{% static 'search.png' %}" alt="" id="id_search_img">
+                        </button>
+                    </label>
+                </form>
+            </div>
+            <div id="id_user">
+                <!-- user authentication -->
+                {% if user.is_authenticated %}
+                <a href="{% url 'blog:logout_user' %}">
+                    <h4>logout</h4>
+                </a>
+                {% else %}
+                <a href="{% url 'blog:login_user' %}">
+                    <h4>A minha Conta</h4>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+        <div id="id_header_logo">
+            <!-- home page -->
+            <a href="{% url 'blog:home' %}">
+                <img src="{% static 'c&c_header.png' %}" alt="">
+            </a>
+        </div>
+    </header>
+    <nav>
+        <!-- home page -->
+        <a href="{% url 'blog:home' %}">
+            <h3>Home</h3>
+        </a>
+
+        <!-- all recipes -->
+        <a href="{% url 'blog:list_recipes' %}">
+            <h3>Receitas</h3>
+        </a>
+        <!-- add new post -->
+        <a href="{% url 'blog:add_post' %}">
+            <h3>Adicionar</h3>
+        </a>
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/cozinhaandcompanhia">
+            <h3>Facebook</h3>
+        </a>
+
+    </nav>
+    <main>
+        {% block content %}
+
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Cozinha & Companhia | Todos os direitos reservados | Isa Bettencourt</p>
+    </footer>
+</body>
+
+</html>

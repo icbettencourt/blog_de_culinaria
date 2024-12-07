@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<div class="register_user">
+    <h2>Erro ao criar conta</h2>
+     
+    <a href="{% url 'blog:register_user' %}">
+        Tente novamente
+    </a>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<div class="title">
+    <h1>Aceda à sua conta</h1>
+</div>
+
+<div class="add_post">
+    <form action="" method="post">
+        {% csrf_token %}
+        <p class="login_user">
+            <label>Utilizador:</label>
+            <input type="text" name="username">
+        </p>
+        <p class="login_user">
+            <label>Palavra-passe:</label>
+            <input type="password" name="password">
+        </p>
+        <button>Entrar</button>
+        <button type="reset">Limpar</button>
+
+        {% for message in messages %}
+        <p class="error">{{ message }}</p>
+        {% endfor%}
+    </form>
+    <div id="id_new_register">
+        <div>Ainda não tem conta?
+            <a href="{% url 'blog:register_user' %}">
+                <br>
+                Faça aqui o seu registo
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

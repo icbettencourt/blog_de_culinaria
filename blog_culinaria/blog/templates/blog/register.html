@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<div class="title">
+    <h1>Novo Registo</h1>
+</div>
+
+<div class="add_post">
+    <form method="post" action="">
+        {% csrf_token %}
+        <p class="login_user">
+            <label>Utilizador:</label>
+            <input type="text" name="username" required>
+        </p>
+        <p class="login_user">
+            <label>Palavra-passe:</label>
+            <input type="password" name="password" required>
+        </p>
+        <button>Enviar</button>
+        <button type="reset">Limpar</button>
+    </form>
+</div>
+</div>
+
+{% endblock %}

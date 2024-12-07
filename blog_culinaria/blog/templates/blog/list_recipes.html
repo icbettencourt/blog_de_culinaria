@@ -1,0 +1,73 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div id="id_big_container">
+    <div id="id_big_treeview">
+        <div class="treeview">
+            <h2>Categorias</h2>
+            <!-- list of categories -->
+            {% for category in categories %}
+            <p>
+                <a href="{% url 'blog:filter_by_category' category.id %}">
+                    <img src="{% static 'pan.png' %}" alt="" title="" class="img_pan">
+                    &nbsp{{category.category}}
+                </a>
+            </p>
+            {% endfor %}
+        </div>
+
+        <div class="treeview">
+            <h2>Índice</h2>
+            <!-- list of recipes -->
+            {% for recipe in recipes_all %}
+            <p>
+                <a href="{% url 'blog:index_a_z' recipe.id %}">
+                    <img src="{% static 'pan.png' %}" alt="" title="" class="img_pan">
+                    &nbsp{{recipe.title}}
+                </a>
+            </p>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% block details %}
+    <div id="id_list_recipes">
+        {% for recipe in recipes %}
+        <div id="id_each_recipe">
+            <!-- hiperlink for details -->
+            <a href="{% url 'blog:details_post' recipe.id %}">
+                <h2> {{ recipe.title }} </h2>
+                <div id="id_each_img">
+                    {% if recipe.photo %}
+                    <img src="{{ recipe.photo.url }}" alt="foto da receita" title="foto da receita" class="img_list">
+                    {% else %}
+                    <img src="{% static 'no_photo.png' %}" alt="sem foto" title="sem foto" class="img_list"
+                        id="id_no_image">
+                    {% endif %}
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+
+        <!-- show message if there are no recipes -->
+        {% if not recipes %}
+        <div id="id_empty">
+            <span id="id_span_empty">
+                Não há receitas registadas.
+                <br>
+                Para ver todas as receitas, clique <a href="{% url 'blog:list_recipes' %}"><b>aqui!</b></a>
+                ou para adicionar uma receita, clique <a href="{% url 'blog:add_post' %}"><b>aqui!</b></a>
+            </span>
+            <div id="id_cook">
+                <img src="{% static 'cutlery2.png' %}" alt="cook" title="cook">
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    {% endblock %}
+
+</div>
+
+{% endblock %}

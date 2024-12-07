@@ -1,0 +1,65 @@
+{% extends 'blog/list_recipes.html' %}
+{% load static %}
+
+{% block details %}
+
+<div id="id_details_container">
+    <div class="title">
+        <h1>{{ recipe.title }} | {{ recipe.category }}</h1>
+        <h4 id="id_created_date">{{ recipe.created_date }}</h4>
+    </div>
+    <div class="add_post">
+        <div id="id_details">
+            <div id="id_details_photo">
+                {% if recipe.photo %}
+                <img src="{{ recipe.photo.url }}" alt="foto da receita" id="id_with_photo">
+                {% else %}
+                <img src="{% static 'no_photo.png' %}" alt="image of no image" id="id_no_image">
+                {% endif %}
+            </div>
+
+            <div id="details">
+                <h4>Ingredientes:</h4>
+                <p>
+                    {{ recipe.ingredients|linebreaks }}
+                </p>
+                <br>
+                <p>
+                <h4>Modo de Preparação:</h4>
+                {{ recipe.recipe|linebreaks }}
+                </p>
+            </div>
+
+        </div>
+
+        <div id="id_list_buttons">
+            <!-- edit recipe -->
+            <a href="{% url 'blog:edit_post' recipe.id %}">
+                <img src="{% static 'edit.png' %}" alt="editar receitar" title="editar receita" class="edit_img"></a>
+            <!-- delete recipe  -->
+            <a href="{% url 'blog:delete_post' recipe.id %}" onclick="confirmDelete()">
+                <img src="{% static 'bin.png' %}" alt="eliminar receita" title="eliminar receita" class="edit_img"></a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // format date
+    document.addEventListener('DOMContentLoaded', function () {
+        const createdDate = "{{ recipe.created_date }}";
+        const date = new Date(createdDate);
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        const formattedDate = date.toLocaleDateString('pt-PT', options);
+        document.getElementById('id_created_date').textContent = formattedDate;
+    });
+
+    // function to delete recipe with allert
+    function confirmDelete() {
+        if (confirm('Pretende eliminar a receita?')) {
+            alert('Receita eliminada com sucesso!');
+        }
+    }
+</script>
+
+</script>
+{% endblock %}
