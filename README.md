@@ -1,19 +1,19 @@
 ### Blog Culinária
     É um blog de culinária desenvolvido em Django. Permite adicionar, listar, atualizar e pesquisar receitas, bem como filtrar por categorias.
 
-### Tecnologias usadas**
+### Tecnologias usadas
     Python 3.8+
     Django 4.x
     SQLite (banco de dados padrão)
     
 ### Como executar o projeto
-      ### Pré-requisitos
+      ## Pré-requisitos
       Certifique-se que tem as seguintes ferramentas instaladas:
       - [Python](https://www.python.org/downloads/) (versão 3.8 ou superior)
       - [Git](https://git-scm.com/)
       - [Visual Studio Code (VS Code)](https://code.visualstudio.com/)
     
-      ### Passos
+      ## Passos
       1. **Clone o repositório:**
        No terminal:
        git clone blog_culinaria
