@@ -1,5 +1,5 @@
 🥞 Blog de Culinária em Django
-É um blog de culinária desenvolvido em Django. Permite adicionar, listar, atualizar e pesquisar receitas, bem como filtrar por categorias.
+    É um blog de culinária desenvolvido em Django. Permite adicionar, listar, atualizar e pesquisar receitas, bem como filtrar por categorias.
 
 💻 Tecnologias usadas
     Python 3.8+
