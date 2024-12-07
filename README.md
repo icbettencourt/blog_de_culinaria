@@ -7,13 +7,13 @@
     SQLite (banco de dados padrão)
     
 ### Como executar o projeto
-      ## Pré-requisitos
+      **Pré-requisitos**
       Certifique-se que tem as seguintes ferramentas instaladas:
       - [Python](https://www.python.org/downloads/) (versão 3.8 ou superior)
       - [Git](https://git-scm.com/)
       - [Visual Studio Code (VS Code)](https://code.visualstudio.com/)
     
-      ## Passos
+      Passos
       1. **Clone o repositório:**
        No terminal:
        git clone blog_culinaria
